@@ -12,7 +12,7 @@
 
 {% block article_content %}
 
-  <p>{% trans openSource=(foundation.licensing) %}Mozilla is an open <a href="{{ openSource }}">source company</a>. Because we make our code available to download and modify, proper use of our trademarks is essential to inform users whether or not Mozilla stands behind a product or service. When using Mozilla trademarks you must comply with these Mozilla Trademark Guidelines.{% endtrans %}</p>
+  <p>{% trans openSource=url('foundation.licensing') %}Mozilla is an open <a href="{{ openSource }}">source company</a>. Because we make our code available to download and modify, proper use of our trademarks is essential to inform users whether or not Mozilla stands behind a product or service. When using Mozilla trademarks you must comply with these Mozilla Trademark Guidelines.{% endtrans %}</p>
 
   <p>{% trans list=url('foundation.trademarks.list') %}A list of Mozilla’s and its affiliates’ trademarks can be found here: <a href="{{ list }}">Trademarks List</a>. However, that is not a complete list of our names, logos, and brand features, all of which are subject to these guidelines.{% endtrans %}</p>
 
@@ -94,7 +94,7 @@
 
   <h4>{{ _('Software Distribution Guidelines') }}</h4>
 
-  <p>{% trans distribution=url(foundation.trademarks.distribution-policy) %}<a href="{{ distribution }}">Click here</a> for additional guidelines that apply to distribution of the Firefox Browser and other Mozilla software.{% endtrans %} </p>
+  <p>{% trans distribution=url('foundation.trademarks.distribution-policy') %}<a href="{{ distribution }}">Click here</a> for additional guidelines that apply to distribution of the Firefox Browser and other Mozilla software.{% endtrans %} </p>
 
   <h4>{{ _('Mozilla Logo and Firefox Logo Guidelines') }}</h4>
 
@@ -148,7 +148,7 @@
 
     <li>{{ _('Use any Mozilla trademark in connection with the user-facing name or branding of your project.') }}</li>
 
-    <li>{{ _(Use any Mozilla trademark or any part of any Mozilla trademark to incorrectly suggest or give the impression your software is actually published by, affiliated with, or endorsed by Mozilla.) }}
+    <li>{{ _('Use any Mozilla trademark or any part of any Mozilla trademark to incorrectly suggest or give the impression your software is actually published by, affiliated with, or endorsed by Mozilla.') }}
 
       <p>{{ _('For example, please do not name your project, [Something]-fox, Moz-[Something], or [Something]-zilla. ') }}</p>
 
