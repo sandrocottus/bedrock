@@ -14,8 +14,8 @@ from .lang to .ftl files. This document will cover the usage of these.
 If you've got a translated page you'd like to convert as-is to the Fluent system
 then you can follow this procedure to get a big head start.
 
-Converting a .lang file to English .ftl
-=======================================
+Convert a .lang file to English .ftl
+====================================
 
 The first step is to convert an existing english .lang file into an equivalent
 .ftl file in the ``en`` folder of the ``l10n`` directory in bedrock. Let's say
@@ -33,8 +33,8 @@ proper places in the template. After you've run this and created the new file
 you should inspect the file for any problems and tweak the new Fluent string
 IDs to adhere to any standards you want or to make more sense.
 
-Converting a template
-=====================
+Convert a template
+==================
 
 Once you have your new .ftl file you'll want to convert the template that used
 the original .lang file to use the new system. To do that you'll do the following
@@ -50,8 +50,8 @@ will then take this mapping of IDs and replace all of the old calls with new cal
 If there are any issues you should see warnings printed to your screen, but always inspect the new
 template and give the page a test run to make sure all is working as expected.
 
-Converting the View or URL
---------------------------
+Convert the View or URL
+-----------------------
 
 To get it working on the site you do have to do a bit more. The above step creates a new template
 with a ``_ftl.html`` suffix instead of overwriting the old one so that you can compare them before
@@ -77,8 +77,8 @@ or the ``page()`` function in urls.py. See the :ref:`specifying_fluent_files` se
     the name of the URL referenced by calls to ``url`` and ``reverse`` around the site. To avoid this
     you can pass the original name to the page function, e.g. ``url_name='mozorg.mission'``.
 
-Porting the translations
-========================
+Port the translations
+=====================
 
 The remaining step is to port all of the existing translation in the .lang files over to .ftl
 files in our fluent files repo.
@@ -95,6 +95,23 @@ This will do several things:
 3. Look up which locales are currently active via the .lang files
    and record that info into a metadata file for the particular
    .ftl file e.g. ``git-repos/www-l10n/metadata/mozorg/mission.json``.
+
+Clean up
+========
+
+Once all of that is done and you're happy with the results you need to remove the porting artifacts.
+This is mainly the string ID hash comments from the new "en" .ftl files. To clean them you run the
+``clean_ftl`` command.
+
+.. code-block:: bash
+
+    $ ./manage.py clean_ftl mozorg/mission
+
+You can specify more than one file. By default it looks in the ``l10n/en/`` folder, but if you give a full
+or relative path to an existing file it will clean that one.
+
+Commit
+======
 
 After that it's up to you to commit all of these changes and push them to where they need to be:
 a pull request to bedrock for the template and English .ftl file changes, and a pull request
