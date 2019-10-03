@@ -132,4 +132,8 @@ urlpatterns = (
 
     # Lockwise
     page('firefox/lockwise', 'firefox/lockwise/lockwise.html'),
+
+    # Issue 7765, 7709
+    page('firefox/privacy', 'firefox/privacy/index.html'),
+    page('firefox/privacy/products', 'firefox/privacy/products.html'),
 )
