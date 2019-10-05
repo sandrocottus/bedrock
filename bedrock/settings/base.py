@@ -229,7 +229,7 @@ LANGUAGES = lazy(lazy_langs, dict)()
 FEED_CACHE = 3900
 DOTLANG_CACHE = 600
 
-DOTLANG_FILES = ['navigation', 'download_button', 'main']
+DOTLANG_FILES = ['navigation', 'footer', 'download_button', 'main']
 
 # Paths that don't require a locale code in the URL.
 # matches the first url component (e.g. mozilla.org/gameon/)
