@@ -11,16 +11,3 @@ from pages.regions.download_button import DownloadButton
 class FirefoxHomePage(FirefoxBasePage):
 
     URL_TEMPLATE = '/{locale}/firefox/'
-
-    _primary_download_button_locator = (By.ID, 'download-intro')
-    _secondary_download_button_locator = (By.ID, 'footer-download')
-
-    @property
-    def primary_download_button(self):
-        el = self.find_element(*self._primary_download_button_locator)
-        return DownloadButton(self, root=el)
-
-    @property
-    def secondary_download_button(self):
-        el = self.find_element(*self._secondary_download_button_locator)
-        return DownloadButton(self, root=el)
